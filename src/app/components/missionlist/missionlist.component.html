@@ -1,0 +1,80 @@
+<h2 class="text-center">101396990's SpaceX Missions</h2>
+
+<div class="year-buttons text-center">
+  <button (click)="filteredLaunches = launches" class="year-button">All</button>
+  <button
+    *ngFor="let year of years"
+    (click)="filterByYear(year)"
+    class="year-button"
+  >
+    {{ year }}
+  </button>
+</div>
+
+<!-- Successful Launch Filter -->
+<div class="filter-panel">
+  <h3>Successful Launch</h3>
+  <div class="filter-grid">
+    <button class="filter-button" (click)="filterBySuccessLaunch(true)">
+      True
+    </button>
+    <button class="filter-button" (click)="filterBySuccessLaunch(false)">
+      False
+    </button>
+  </div>
+</div>
+
+<!-- Successful Land Filter -->
+<div class="filter-panel">
+  <h3>Successful Land</h3>
+  <div class="filter-grid">
+    <button class="filter-button" (click)="filterBySuccessLand(true)">
+      True
+    </button>
+    <button class="filter-button" (click)="filterBySuccessLand(false)">
+      False
+    </button>
+  </div>
+</div>
+
+<div
+  *ngFor="let launch of filteredLaunches"
+  class="launch-card"
+  [routerLink]="['/mission', launch.flight_number]"
+  style="cursor: pointer"
+>
+  <div style="display: flex; gap: 10px; align-items: center">
+    <img
+      [src]="launch.links.mission_patch_small"
+      width="70"
+      alt="Mission Patch"
+    />
+    <div>
+      <h4>{{ launch.mission_name }} ({{ launch.launch_year }})</h4>
+      <p><strong>Flight Number:</strong> {{ launch.flight_number }}</p>
+      <p><strong>Details:</strong> {{ launch.details }}</p>
+      <p>
+        <strong>Rocket:</strong>
+        {{ launch.rocket.rocket_name }} -
+        {{ launch.rocket.rocket_type }}
+      </p>
+      <div *ngIf="launch.links.article_link">
+        <a [href]="launch.links.article_link" target="_blank">Article</a>
+        <span>&nbsp;</span>
+        <a
+          *ngIf="launch.links.wikipedia"
+          [href]="launch.links.wikipedia"
+          target="_blank"
+          >Wikipedia</a
+        >
+        <span>&nbsp;</span>
+        <a
+          *ngIf="launch.links.video_link"
+          [href]="launch.links.video_link"
+          target="_blank"
+          >Video</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

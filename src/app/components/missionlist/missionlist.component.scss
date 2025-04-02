@@ -1,0 +1,115 @@
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  button {
+    padding: 6px 12px;
+    background-color: #2e8bc0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #145da0;
+    }
+  }
+}
+
+.mission-card {
+  background-color: #cce5ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.mission-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.mission-info {
+  flex: 1;
+}
+
+.mission-links a {
+  margin-right: 10px;
+  color: #0056b3;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.year-buttons {
+  margin-bottom: 20px;
+  button {
+    background-color: #27aae1;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.launch-card {
+  background-color: #cce5ff;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-panel {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  width: 260px;
+  margin-bottom: 20px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.filter-button {
+  background-color: #a3d9a5;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filter-button:hover {
+  background-color: #87c98f;
+}
+
+.reset-button {
+  background-color: #555;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}

@@ -1,0 +1,73 @@
+<div *ngIf="mission" class="container" style="padding: 20px">
+  <h2 class="text-center mb-4" style="color: #2c3e50">
+    🚀 SpaceX Mission Details
+  </h2>
+
+  <div
+    class="card"
+    style="background-color: #ecf0f1; padding: 20px; border-radius: 10px"
+  >
+    <div style="display: flex; align-items: center; gap: 20px">
+      <img
+        [src]="mission.links.mission_patch"
+        [alt]="mission.mission_name"
+        width="150"
+        height="150"
+        style="object-fit: contain"
+      />
+      <div>
+        <h3 style="color: #2980b9; margin-bottom: 0">
+          {{ mission.mission_name }} ({{ mission.launch_year }})
+        </h3>
+        <p><strong>Flight #</strong>: {{ mission.flight_number }}</p>
+        <p>
+          <strong>Rocket:</strong>
+          {{ mission.rocket.rocket_name }} ({{ mission.rocket.rocket_type }})
+        </p>
+        <p>
+          <strong>Launch Site:</strong>
+          {{ mission.launch_site.site_name_long }}
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px">
+      <p><strong>Launch Details:</strong></p>
+      <p>{{ mission.details || "No detailed information available." }}</p>
+    </div>
+
+    <div
+      *ngIf="
+        mission.links.article_link ||
+        mission.links.wikipedia ||
+        mission.links.video_link
+      "
+      style="margin-top: 20px"
+    >
+      <h4>📎 More Info:</h4>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap">
+        <a
+          *ngIf="mission.links.article_link"
+          [href]="mission.links.article_link"
+          target="_blank"
+          class="btn-link"
+          >📰 Article</a
+        >
+        <a
+          *ngIf="mission.links.wikipedia"
+          [href]="mission.links.wikipedia"
+          target="_blank"
+          class="btn-link"
+          >📚 Wikipedia</a
+        >
+        <a
+          *ngIf="mission.links.video_link"
+          [href]="mission.links.video_link"
+          target="_blank"
+          class="btn-link"
+          >🎥 Video</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
